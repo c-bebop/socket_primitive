@@ -56,7 +56,7 @@ void print_integer_types()
  */
 void print_real_number_types()
 {
-    print_size<float>       ("float"                       );
+    print_size<float>       ("float");
     print_size<double>      ("double");
     print_size<long double> ("long double");
 }
