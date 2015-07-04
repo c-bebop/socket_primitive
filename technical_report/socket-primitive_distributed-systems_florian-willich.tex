@@ -1,0 +1,225 @@
+\documentclass[xcolor=dvipsnames]{article}
+
+% Bibtex
+\usepackage{cite, authordate1-4}
+\usepackage{url}
+
+\usepackage[pdftex]{graphicx}
+
+% Open Sans Package!
+\usepackage[default,scale=0.95]{opensans}
+\usepackage[T1]{fontenc}
+
+\usepackage{transparent}
+
+\usepackage[dvipsnames]{xcolor}
+\definecolor{blue}{cmyk}{0.81,0.26,0,0.48}
+\definecolor{code_backgrond}{cmyk}{0.02,0.01,0,0.07}
+\definecolor{red}{cmyk}{0,0.76,0.76,0.48}
+\definecolor{lbcolor}{rgb}{1,1,1}
+\definecolor{mygray}{rgb}{0.3,0.3,0.3}
+
+% GLOSSAR BEGIN
+\usepackage[acronym]{glossaries}
+
+\usepackage{tikz}
+
+% Listing for Code
+\usepackage{listings}
+
+
+\lstset{ %
+	language=Erlang,                % choose the language of the code
+	basicstyle=\ttfamily\footnotesize\color{black},       % the size of the fonts that are used for the code
+	numbers=left,                   % where to put the line-numbers
+	numberstyle=\color{black}\footnotesize,      % the size of the fonts that are used for the line-numbers
+	stepnumber=1,                   % the step between two line-numbers. If it is 1 each line will be numbered
+	numbersep=3pt,                  % how far the line-numbers are from the code
+	showspaces=false,               % show spaces adding particular underscores
+	showstringspaces=false,         % underline spaces within strings
+	showtabs=false,                 % show tabs within strings adding particular underscores
+	%frame=single,           % adds a frame around the code
+	tabsize=2,          % sets default tabsize to 2 spaces
+	captionpos=b,           % sets the caption-position to bottom
+	breaklines=true,        % sets automatic line breaking
+	breakatwhitespace=false,    % sets if automatic breaks should only happen at whitespace
+	escapeinside={\%*}{*)},         % if you want to add a comment within your code
+	keywordstyle=\color{red},
+	commentstyle=\color{mygray},
+	stringstyle=\color{black},
+	backgroundcolor=\color{code_backgrond}
+}
+
+% Generate the glossary
+\makenoidxglossaries
+
+%Term definitions
+\newacronym{os}{OS}{Operating System}
+\newacronym{mpi}{MPI}{Message-Passing Interface}
+\newacronym{rpc}{RPC}{Remote Procedure Calls}
+\newacronym{tcp}{TCP/IP}{Transmission Control Protocol / Internet Protocol}
+\newacronym{xml}{XML}{Extensible Markup Language}
+\newacronym{json}{JSON}{JavaScript Object Notation}
+\newacronym{ipc}{IPC}{Inter-Process Communication}
+\newacronym{rtp}{RTP}{Real-Time Transport Protocol}
+\newacronym{udp}{UDP}{User Datagram Protocol}
+\newacronym{osi}{OSI}{Open Systems Interconnection Reference Model}
+\newacronym{iso}{ISO}{International Organization for Standardization}
+\newacronym{fifo}{FIFO}{First In - First Out}
+\newacronym{pid}{PID}{Process Identifier}
+\newacronym{mpif}{MPIF}{Message-Passing Interface Forum}
+\newacronym{hpc}{HPC}{High-Performance Computing}
+\newacronym{ascii}{ASCII}{American Standard Code for Information Interchange}
+
+% GLOSSAR END
+
+% For HTML conversion
+%\usepackage{tex4ht}
+
+\title{\scshape{
+\begin{small}
+Definition of the term\\
+\end{small} 
+\textbf{\textcolor{blue}{Socket Primitive}}\\
+\begin{small}
+In Distributed Systems
+\end{small}
+}}
+
+\author{Florian Willich \\ Hochschule f\"ur Technik und Wirtschaft Berlin \\ University of Applied Sciences Berlin \\ Course: Distributed Systems \\ Lecturer: Prof. Dr. Christin Schmidt}
+        
+\date{\today}
+
+\begin{document}
+
+\pagenumbering{gobble} 
+
+\begin{titlepage}
+
+\maketitle
+
+\begin{abstract}
+Abstract...
+\end{abstract}
+
+\end{titlepage}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\pagenumbering{arabic} 
+
+\section{\scshape{\textcolor{blue}{Introduction}}} \label{introduction}
+
+During my work on a technical report I came across the term \textit{Socket Primitive} which was a heavily used term when describing operations with the \gls{tcp} \cite[p. 141, ch. 4.3.1]{tanenbaum}:
+
+\begin{quote}
+[...] A socket forms an abstraction over the actual communication end
+point that is used by the local operating system for a specific
+transport protocol. In the following text, we concentrate on the socket
+primitives for TCP, which are shown in Fig. 4-14. [...] 
+\end{quote}
+
+\noindent Inevitably the question came up what exactly the term \textit{Socket Primitive} defines?\\
+
+\noindent It appears to be that either the term \textit{Socket Primitive} is used when\\
+
+\noindent Please keep in mind that although I am writing in a more abstract and general way about \textit{Socket Primitives}, it is always considered to operate with a UNIX \gls{os}.
+
+\subsection{\scshape{\textcolor{blue}{Socket}}}
+
+A Socket is a communication end point of a computer system. Whenever two computer systems shall communicate with each other, a connection between those has to be established and therefore a connection between the local sockets has to be established \cite[p. 553, ch. 6.5.2]{computer_networks}.
+
+\subsection{\scshape{\textcolor{blue}{Primitive}}}
+
+In computer science, the word \textit{primitive} is often used to name an instruction which represents a self-contained unit. Whenever the word \textit{primitive} is used, the most basic instruction on the current abstraction level is ment. This also means that there will probably be no further description of what this instruction is composed of.\\
+
+\noindent For example: The GNU C Reference Manual uses the term \textit{Primitive Data Types} to describe the built-in data types in the programming language C \cite[p. 8, ch. 2]{GNU_C_manual}. The following table shows a selection of primitive data types of a C language, their characteristics and the memory allocation on 64-bit systems. Please see Appendix \ref{c++_data_types} for implementation details:\\
+
+\begin{center}
+\begin{tabular}{ | l | l | l | }
+\hline
+\textcolor{blue}{Primitive} & \textcolor{blue}{Characteristic} & \textcolor{blue}{Memory Allocation}\\
+\hline
+char & stores \glsdisp{ascii}{ASCII} characters & 1 byte\\
+int & stores integers  & 4 byte\\
+float & stores floating point real numbers & 4 byte\\
+double & stores double precision & 8 byte\\
+& floating point real numbers &\\
+\hline
+\end{tabular}
+\end{center}
+
+\noindent As long as a programmer knows what each built-in \textit{Primitive Data Type} represents and how to use it, he must not necessarily know what assembly code the compiler is generating to write code in a high level language. On the contrary, a compiler builder has to.\\
+
+\noindent The \textit{Oxford Advanced Learners Dictionary} has no definition of the word \textit{primitive} that fits for the use in computer science \cite[p. 1197]{oxford_dictionary}. Nevertheless, the online version \url{http://www.oxfordlearnersdictionaries.com} offers an additional word origin:
+
+\begin{quote}
+late Middle English (in the sense 'original, not derivative'): from Old French primitif, -ive, from Latin primitivus 'first of its kind', from primus 'first'.
+\end{quote}
+
+\noindent \small{Source URL: \url{http://www.oxfordlearnersdictionaries.com/definition/english/primitive_1?q=primitive}}\\
+
+\noindent 
+
+\section{\scshape{\textcolor{blue}{TCP/IP Socket Primitives}}} \label{socket_primitives}
+
+The following table lists the most common \gls{tcp} socket primitives with a short description \cite{IBM_Anupama}:\\
+
+\begin{center}
+\begin{tabular}{ | l | l | } 
+\hline
+\textcolor{blue}{Primitive} & \textcolor{blue}{Service description}\\
+\hline
+Socket & creates a new socket e.g. communication end point\\
+Bind & associates a local address with a socket\\
+Listen & allows to accept new incoming connections to a socket\\
+Accept & blocks until a connection request\\
+Connect & connects to a socket\\
+Send & sends a message to a socket\\
+Receive & reads a message from a socket\\
+Close & aborts a connection\\
+\hline
+\end{tabular}
+\end{center}
+\label{tab:tcp_primitives}
+
+Figure \ref{tab:tcp_primitives} describes the \gls{tcp} socket primitives \cite[p. 142, ch. 4.3.1]{tanenbaum}
+
+\section{\scshape{\textcolor{blue}{Definition}}} \label{definition}
+
+\begin{quote}
+
+\textit{A socket primitive is a socket related function that is provided by various standard libraries for various high-level programming languages. It provides an interface for calling operating system specific instructions. Therefore, a 'socket primitive' is called primitive because it is the lowest level interface for a programmer who is writing in a high level programming language to operate with network protocols.}
+
+\end{quote}
+
+\begin{appendix}
+
+\section{Primitive Data Types in C++}\label{c++_data_types}
+
+\lstinputlisting[language=C++]{../dataype_primitive_c++_application/main.cpp}
+
+\end{appendix}
+
+\printnoidxglossaries
+
+\newpage
+
+\bibliographystyle{authordate1}
+\bibliography{lib}
+
+\vfill
+\begin{center}
+This document was written with \LaTeX 
+\\Typeface: Open Sans by Steve Matteson.
+\end{center}
+
+% To compile bibtex and latex manual:
+% bibtex belegarbeit.aux
+% latex belegarbeit.tex
+
+\end{document}
