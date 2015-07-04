@@ -46,7 +46,7 @@
 	escapeinside={\%*}{*)},         % if you want to add a comment within your code
 	keywordstyle=\color{red},
 	commentstyle=\color{mygray},
-	stringstyle=\color{black},
+	stringstyle=\color{blue},
 	backgroundcolor=\color{code_backgrond}
 }
 
@@ -135,25 +135,7 @@ A Socket is a communication end point of a computer system. Whenever two compute
 
 \subsection{\scshape{\textcolor{blue}{Primitive}}}
 
-In computer science, the word \textit{primitive} is often used to name an instruction which represents a self-contained unit. Whenever the word \textit{primitive} is used, the most basic instruction on the current abstraction level is ment. This also means that there will probably be no further description of what this instruction is composed of.\\
-
-\noindent For example: The GNU C Reference Manual uses the term \textit{Primitive Data Types} to describe the built-in data types in the programming language C \cite[p. 8, ch. 2]{GNU_C_manual}. The following table shows a selection of primitive data types of a C language, their characteristics and the memory allocation on 64-bit systems. Please see Appendix \ref{c++_data_types} for implementation details:\\
-
-\begin{center}
-\begin{tabular}{ | l | l | l | }
-\hline
-\textcolor{blue}{Primitive} & \textcolor{blue}{Characteristic} & \textcolor{blue}{Memory Allocation}\\
-\hline
-char & stores \glsdisp{ascii}{ASCII} characters & 1 byte\\
-int & stores integers  & 4 byte\\
-float & stores floating point real numbers & 4 byte\\
-double & stores double precision & 8 byte\\
-& floating point real numbers &\\
-\hline
-\end{tabular}
-\end{center}
-
-\noindent As long as a programmer knows what each built-in \textit{Primitive Data Type} represents and how to use it, he must not necessarily know what assembly code the compiler is generating to write code in a high level language. On the contrary, a compiler builder has to.\\
+\subsubsection{\scshape{\textcolor{blue}{Meaning in Linguistic Science}}}
 
 \noindent The \textit{Oxford Advanced Learners Dictionary} has no definition of the word \textit{primitive} that fits for the use in computer science \cite[p. 1197]{oxford_dictionary}. Nevertheless, the online version \url{http://www.oxfordlearnersdictionaries.com} offers an additional word origin:
 
@@ -163,9 +145,31 @@ late Middle English (in the sense 'original, not derivative'): from Old French p
 
 \noindent \small{Source URL: \url{http://www.oxfordlearnersdictionaries.com/definition/english/primitive_1?q=primitive}}\\
 
-\noindent 
+\noindent The important part is the late Middle English origin in the sense 'original, not derivative'.
 
-\section{\scshape{\textcolor{blue}{TCP/IP Socket Primitives}}} \label{socket_primitives}
+\subsubsection{\scshape{\textcolor{blue}{Meaning in Computer Science}}}
+
+In computer science, the word \textit{primitive} is often used to name an instruction which represents a self-contained unit on the current abstraction level. This also means that there is probably no need for further description of what this instruction is composed of.\\
+
+\noindent For example: The GNU C Reference Manual uses the term \textit{Primitive Data Types} to describe the built-in data types in the programming language C \cite[p. 8, ch. 2]{GNU_C_manual}. The following table shows a selection of primitive data types of a C language, their characteristics and the memory allocation on 64-bit systems. Please see Appendix \ref{c++_data_types} for the implementation:\\
+
+\begin{center}
+\begin{tabular}{ | l | l | l | }
+\hline
+\textcolor{blue}{Primitive} & \textcolor{blue}{Stores} & \textcolor{blue}{Memory Allocation}\\
+\hline
+char & \glsdisp{ascii}{ASCII} characters & 1 byte\\
+int & integers  & 4 byte\\
+float & floating point real numbers & 4 byte\\
+double & double precision & 8 byte\\
+& floating point real numbers &\\
+\hline
+\end{tabular}
+\end{center}
+
+\noindent As long as a programmer knows what each built-in \textit{Primitive Data Type} represents and how to use it, he must not necessarily know what assembly code the compiler is generating to write code in a high level language. On the contrary, a compiler builder has to.\\
+
+\section{\scshape{\textcolor{blue}{\glsdisp{tcp}{TCP/IP} Socket Primitives}}} \label{socket_primitives}
 
 The following table lists the most common \gls{tcp} socket primitives with a short description \cite{IBM_Anupama}:\\
 
