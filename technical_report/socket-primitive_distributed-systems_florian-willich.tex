@@ -129,9 +129,11 @@ primitives for TCP, which are shown in Fig. 4-14. [...]
 
 \noindent Please keep in mind that although I am writing in a more abstract and general way about \textit{Socket Primitives}, it is always considered to operate with a UNIX \gls{os}.
 
-\subsection{\scshape{\textcolor{blue}{Socket}}}
+\subsection{\scshape{\textcolor{blue}{Socket}}}\label{introduction_socket}
 
-A Socket is a communication end point of a computer system. Whenever two computer systems shall communicate with each other, a connection between those has to be established and therefore a connection between the local sockets has to be established \cite[p. 553, ch. 6.5.2]{computer_networks}.
+A socket is a communication end point of a computer system. Whenever two computer systems shall communicate with each other, a connection between those systems has to be established by using interconnected socket \cite[p. 553, ch. 6.5.2]{computer_networks}.\\
+
+\noindent A socket is always considered to use associated with a protocol that implements a model of communication \cite[p. 427 - 428, ch. 16]{GNU_C_library_manual}. Common protocols are the \gls{udp} or \gls{tcp} for example.
 
 \subsection{\scshape{\textcolor{blue}{Primitive}}}
 
@@ -171,7 +173,9 @@ double & double precision & 8 byte\\
 
 \section{\scshape{\textcolor{blue}{\glsdisp{tcp}{TCP/IP} Socket Primitives}}} \label{socket_primitives}
 
-The following table lists the most common \gls{tcp} socket primitives with a short description \cite{IBM_Anupama}:\\
+As already mentioned above (chapter \ref{introduction_socket}) a socket always operates with a associated protocol. For the programmer of a high level programming language, the protocol specifies the interface to operate with the socket.\\
+
+\noindent The following table lists the most common \gls{tcp} socket primitives with a short description \cite{IBM_Anupama}:\\
 
 \begin{center}
 \begin{tabular}{ | l | l | } 
