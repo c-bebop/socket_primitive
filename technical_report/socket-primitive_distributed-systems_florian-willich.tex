@@ -123,17 +123,15 @@ transport protocol. In the following text, we concentrate on the socket
 primitives for TCP, which are shown in Fig. 4-14. [...] 
 \end{quote}
 
-\noindent Inevitably the question came up what exactly the term \textit{Socket Primitive} defines?\\
+\noindent Inevitably the question came up what exactly the term \textit{Socket Primitive} defines? With this technical report, I will first clarify what a \textit{socket} is and what a \textit{primitive} means in computer science. Furthermore, I will describe the term \textit{socket primitive} with examples and more detail and define the term.\\
 
-\noindent It appears to be that either the term \textit{Socket Primitive} is used when\\
-
-\noindent Please keep in mind that although I am writing in a more abstract and general way about \textit{Socket Primitives}, it is always considered to operate with a UNIX \gls{os}.
+\noindent Please keep in mind that although I am writing in a more abstract and general way about \textit{socket primitives}, it is always considered to operate with a UNIX \gls{os}.
 
 \subsection{\scshape{\textcolor{blue}{Socket}}}\label{introduction_socket}
 
-A socket is a communication end point of a computer system. Whenever two computer systems shall communicate with each other, a connection between those systems has to be established by using interconnected socket \cite[p. 553, ch. 6.5.2]{computer_networks}.\\
+A socket is a communication end point of a computer system. Whenever two computer systems shall communicate with each other, a connection between those systems has to be established by using interconnected sockets \cite[p. 553, ch. 6.5.2]{computer_networks}.\\
 
-\noindent A socket is always considered to use associated with a protocol that implements a model of communication \cite[p. 427 - 428, ch. 16]{GNU_C_library_manual}. Common protocols are the \gls{udp} or \gls{tcp} for example.
+\noindent A socket is always considered to be used associated with a protocol that implements a model of communication. \gls{ipc} will only be successful when both processes use the same protocol. Common protocols are the \gls{udp} or \gls{tcp} for example. The used protocol determines what low-level mechanism is used to transmit and receive data \cite[p. 427 - 427, ch. 16]{GNU_C_library_manual}.
 
 \subsection{\scshape{\textcolor{blue}{Primitive}}}
 
@@ -147,7 +145,7 @@ late Middle English (in the sense 'original, not derivative'): from Old French p
 
 \noindent \small{Source URL: \url{http://www.oxfordlearnersdictionaries.com/definition/english/primitive_1?q=primitive}}\\
 
-\noindent The important part is the late Middle English origin in the sense 'original, not derivative'.
+\noindent The important part is the late Middle English origin in the sense 'original, not derivative'. In computer science we could understand the word \textit{primitive} to represent the lowest level representation on the current abstraction level: Original, not derivative.
 
 \subsubsection{\scshape{\textcolor{blue}{Meaning in Computer Science}}}
 
@@ -171,7 +169,7 @@ double & double precision & 8 byte\\
 
 \noindent As long as a programmer knows what each built-in \textit{Primitive Data Type} represents and how to use it, he must not necessarily know what assembly code the compiler is generating to write code in a high level language. On the contrary, a compiler builder has to.\\
 
-\section{\scshape{\textcolor{blue}{\glsdisp{tcp}{TCP/IP} Socket Primitives}}} \label{socket_primitives}
+\section{\scshape{\textcolor{blue}{TCP/IP Socket Primitives}}} \label{socket_primitives}
 
 As already mentioned above (chapter \ref{introduction_socket}) a socket always operates with a associated protocol. For the programmer of a high level programming language, the protocol specifies the interface to operate with the socket.\\
 
@@ -195,7 +193,18 @@ Close & aborts a connection\\
 \end{center}
 \label{tab:tcp_primitives}
 
-Figure \ref{tab:tcp_primitives} describes the \gls{tcp} socket primitives \cite[p. 142, ch. 4.3.1]{tanenbaum}
+Figure \ref{tab:tcp_primitives} describes the \gls{tcp} socket primitives \cite[p. 142, ch. 4.3.1]{tanenbaum}.\\
+
+\noindent To demonstrate that a socket primitive can either be a self-contained operation for a programmer who uses a library but not for the implementer of the library, I choose the send primitive for example:
+
+\begin{lstlisting}[language=C, numbers=none]
+ssize_t send(  	int socket, 
+								const void *buffer, 
+								size_t size, 
+								int flags)
+\end{lstlisting}
+
+
 
 \section{\scshape{\textcolor{blue}{Definition}}} \label{definition}
 
