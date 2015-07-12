@@ -115,7 +115,7 @@ Abstract...
 
 \section{\scshape{\textcolor{blue}{Introduction}}} \label{introduction}
 
-During my work on a technical report I came across the term \textit{Socket Primitive} which was a heavily used term when describing operations with the \gls{tcp} \cite[p. 141, ch. 4.3.1]{tanenbaum}:
+During my work on a ?technical report? I came across the term \textit{Socket Primitive} which was a heavily used term when describing operations with the \gls{tcp} \cite[p. 141, ch. 4.3.1]{tanenbaum}:
 
 \begin{quote}
 [...] A socket forms an abstraction over the actual communication end
@@ -124,11 +124,11 @@ transport protocol. In the following text, we concentrate on the socket
 primitives for TCP, which are shown in Fig. 4-14. [...] 
 \end{quote}
 
-\noindent Inevitably the question came up what exactly the term \textit{Socket Primitive} defines? With this technical report, I will first clarify what a \textit{socket} is and what \textit{primitive} means in computer science. Furthermore, I will describe the term \textit{socket primitive} with examples and more detail and define the term.\\
+\noindent Inevitably the question came up what exactly the term \textit{Socket Primitive} defines?  With this technical report, I will first clarify what a \textit{Socket} is and what \textit{Primitive} means in such context. Furthermore, I will describe the term \textit{Socket Primitive} with examples and more detail and define the term.\\
 
 \noindent I also would like to give special thanks to Maarten van Steen who wrote me some more clarification details in the beginning of my research.\\
 
-\noindent Please keep in mind that although I am writing in a more abstract and general way about \textit{socket primitives}, it is always considered to operate with a UNIX \gls{os}.
+\noindent Please keep in mind that although I am writing in a more abstract and general way about \textit{Socket Primitives}, it is always considered to operate with a UNIX \gls{os}.
 
 \subsection{\scshape{\textcolor{blue}{Socket}}}\label{introduction_socket}
 
@@ -168,13 +168,13 @@ double & double precision & 8 byte\\
 late Middle English (in the sense 'original, not derivative'): from Old French primitif, -ive, from Latin primitivus 'first of its kind', from primus 'first'.
 \end{quote}
 
-\noindent The important part is the late Middle English origin in the sense 'original, not derivative'. As described above, a \textit{primitive data type} has different storing characteristics. In \gls{oop} With those \textit{primitive data types} 
+\noindent In computer science, \textit{Primitive} is often used when describing a low-level operation. 
 
 \section{\scshape{\textcolor{blue}{TCP/IP Socket Primitives}}} \label{socket_primitives}
 
-As already mentioned above (chapter \ref{introduction_socket}) a socket always operates with a associated protocol. For the programmer of a high level programming language, the protocol specifies the interface to operate with the socket.\\
+As already mentioned above (chapter \ref{introduction_socket}), a socket communicates always associated with a protocol. For the programmer in a high level programming language, protocols specify the interface to operate with sockets.\\
 
-\noindent The following table lists the most common \gls{tcp} socket primitives with a short description \cite{IBM_Anupama}:\\
+\noindent The following table lists the most common \gls{tcp} \textit{Socket Primitives} with a short description \cite{IBM_Anupama} \& \cite[p. 142, ch. 4.3.1]{tanenbaum}:\\
 
 \begin{center}
 \begin{tabular}{ | l | l | } 
@@ -194,9 +194,7 @@ Close & aborts a connection\\
 \end{center}
 \label{tab:tcp_primitives}
 
-Figure \ref{tab:tcp_primitives} describes the \gls{tcp} socket primitives \cite[p. 142, ch. 4.3.1]{tanenbaum}.\\
-
-\noindent The following definition of the function \textit{send()} is the implementation of the socket primitive \textit{Send} by the GNU C Library \cite[p. 457, ch. 16.9.5.1]{GNU_C_library_manual}:
+\noindent The following definition of the function \textit{send()} is the implementation of the \textit{Socket Primitive} \textit{Send} by the GNU C Library \cite[p. 457, ch. 16.9.5.1]{GNU_C_library_manual}:
 
 \begin{lstlisting}[language=C, numbers=none]
 ssize_t send(  	int socket, 
@@ -222,17 +220,17 @@ ssize_t send(  	int socket,
 
 \section{\scshape{\textcolor{blue}{Definition}}} \label{definition}
 
-Now that the term \textit{socket primitive} is more clarified, the following definition of primitives by Andrew S. Tanenbaum gives a very good summary \cite[p. 38, ch. 1.3.4]{computer_networks}:
+Now that the term \textit{Socket Primitive} is more clarified, the following definition of primitives by Andrew S. Tanenbaum gives a very good summary \cite[p. 38, ch. 1.3.4]{computer_networks}:
 
 \begin{quote}
 A service is formally specified by a set of primitives (operations) available to user processes to access the service. These primitives tell the service to perform some action or report on an action taken by a peer entity. If the protocol stack is located in the operating system, as it often is, the primitives are normally system calls. These calls cause a trap to kernel mode, which then turns control of the machine over to the operating system to send the necessary packets.
 \end{quote}
 
-\noindent The following is the working definition of a \textit{socket primitive}:
+\noindent The following is the working definition of a \textit{Socket Primitive}:
 
 \begin{quote}
 
-\textit{A socket primitive is a socket related function that is provided by various standard libraries for various high-level programming languages. It provides an interface for calling operating system specific instructions. Therefore, a 'socket primitive' is called primitive because it is the lowest level interface for a programmer who is writing in a high level programming language to operate with sockets.}
+\textit{A \textit{Socket Primitive} is a socket related function that is provided by various high-level programming language libraries. A socket is a communication endpoint of a UNIX \gls{os}. Operating with sockets requires the implementation of a protocol and its interface. Socket Primitives are called primitive because they represent self-contained low-level units that operate with sockets.}
 
 \end{quote}
 
