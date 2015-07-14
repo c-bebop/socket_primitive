@@ -77,14 +77,15 @@
 % For HTML conversion
 %\usepackage{tex4ht}
 
-\title{\scshape{
-\begin{small}
+\title{
+\scshape{
+\begin{large}
 Definition of the term\\
-\end{small} 
+\end{large} 
 \textbf{\textcolor{blue}{Socket Primitive}}\\
-\begin{small}
+\begin{large}
 In Distributed Systems
-\end{small}
+\end{large}
 }}
 
 \author{Florian Willich \\ Hochschule f\"ur Technik und Wirtschaft Berlin \\ University of Applied Sciences Berlin \\ Course: Distributed Systems \\ Lecturer: Prof. Dr. Christin Schmidt}
@@ -100,7 +101,7 @@ In Distributed Systems
 \maketitle
 
 \begin{abstract}
-Abstract...
+Socket Primitive is a heavily used term associated with network operations in computer science. A socket is a communication end point of a computer system. The word \textit{primitive} is often used to name an instruction which represents a self-contained unit on the current abstraction level. Therefore, a \textit{Socket Primitive} is a socket related function that is provided by various high-level programming language libraries.
 \end{abstract}
 
 \end{titlepage}
@@ -117,9 +118,9 @@ Abstract...
 
 \section{\scshape{\textcolor{blue}{Introduction}}} \label{introduction}
 
-During my work on a ?technical report? (Fussnote) I came across the term \textit{Socket Primitive} which was a heavily used term when describing operations with the \gls{tcp}, which in one instance was used as follows \cite[p. 141, ch. 4.3.1]{tanenbaum}:
+During my work on a technical report\footnote{Willich, Florian. 2015. Introductory Guide to Message Passing in Distributed Computer Systems. \url{https://github.com/c-bebop/message_passing/blob/master/technical_report/message-passing_distributed-systems_florian-willich.pdf}} I came across the term \textit{Socket Primitive} which was a heavily used term when describing operations with the \gls{tcp}, which in one instance was used as follows \cite[p. 141, ch. 4.3.1]{tanenbaum}:
 
-\begin{quote}
+\begin{quote}\label{tanenbaum_quote}
 [...] A socket forms an abstraction over the actual communication end
 point that is used by the local operating system for a specific
 transport protocol. In the following text, we concentrate on the socket
@@ -128,11 +129,11 @@ primitives for TCP, which are shown in Fig. 4-14. [...]
 
 \noindent Inevitably the question came up: What exactly does the term \textit{Socket Primitive} define?  With this technical report, I will first clarify what a \textit{Socket} is and what \textit{Primitive} means in such a context. Furthermore, I will describe the term \textit{Socket Primitive} by using examples and ultimately define the term.\\
 
-\noindent I also would like to give special thanks to Maarten van Steen who aided me with some clarification at the beginning of my research.\\
+\noindent I also would like to give special thanks to Maarten van Steen, co-author of the quoted book \cite{tanenbaum}, who aided me with some clarification at the beginning of my research.\\
 
 \noindent The reader is asked to keep in mind that although I am writing in a more abstract and general way about \textit{Socket Primitives}, it is always considered to operate with a UNIX \gls{os}.
 
-\section{Definition of the terms Socket and Primitive}
+\section{\scshape{\textcolor{blue}{Definition of the terms Socket and Primitive}}}
 
 \subsection{\scshape{\textcolor{blue}{Socket}}}\label{introduction_socket}
 
@@ -151,12 +152,12 @@ In computer science, the word \textit{primitive} is often used to name an instru
 \begin{center}
 \begin{tabular}{ | l | l | l | }
 \hline
-\textcolor{blue}{Primitive} & \textcolor{blue}{Stores} & \textcolor{blue}{Memory Allocation}\\
+\textcolor{blue}{\textbf{Primitive}} & \textcolor{blue}{Stores} & \textcolor{blue}{Memory Allocation}\\
 \hline
-char & \glsdisp{ascii}{ASCII} characters & 1 byte\\
-int & integers  & 4 byte\\
-float & floating point real numbers & 4 byte\\
-double & double precision & 8 byte\\
+\textbf{char} & \glsdisp{ascii}{ASCII} characters & 1 byte\\
+\textbf{int} & integers  & 4 byte\\
+\textbf{float} & floating point real numbers & 4 byte\\
+\textbf{double} & double precision & 8 byte\\
 & floating point real numbers &\\
 \hline
 \end{tabular}
@@ -164,17 +165,17 @@ double & double precision & 8 byte\\
 
 \noindent As long as a programmer knows what each built-in \textit{Primitive Data Type} represents and how to use it, he must not necessarily know what assembly code the compiler is generating to write code in a high level language. On the contrary, a compiler builder has to.\\
 
-Please see Appendix \ref{c++_data_types} for the corresponding implementation of the application which prints out the size allocated by primitive data types in C++.
+\noindent Please see Appendix \ref{c++_data_types} for the corresponding implementation of the application which prints out the size allocated by primitive data types in C++.
 
 \subsubsection{\scshape{\textcolor{blue}{Meaning in Linguistic Science}}}
 
-\noindent The \textit{Oxford Advanced Learners Dictionary} has no definition of the word \textit{primitive} that fits for the use in computer science \cite[p. 1197]{oxford_dictionary}. The online version \url{http://www.oxfordlearnersdictionaries.com} offers merely the basic etymology of primitive !!Fussnote!!(Original URL: \url{http://www.oxfordlearnersdictionaries.com/definition/english/primitive_1?q=primitive}):
+\noindent The \textit{Oxford Advanced Learners Dictionary} has no definition of the word \textit{primitive} that fits for the use in computer science \cite[p. 1197]{oxford_dictionary}. The online version \url{http://www.oxfordlearnersdictionaries.com} offers\footnote{Original URL: \url{http://www.oxfordlearnersdictionaries.com/definition/english/primitive_1?q=primitive}} merely the basic etymology of primitive:
 
 \begin{quote}
 late Middle English (in the sense 'original, not derivative'): from Old French primitif, -ive, from Latin primitivus 'first of its kind', from primus 'first'.
 \end{quote}
 
-\noindent However, also this additional definition does not correspond to its use in computer science, where it is commonly used in a 'sloppy' way. 
+\noindent However, also this additional definition does not correspond to its use in computer science, which indicates that the term is commonly used in a 'sloppy' way. 
 
 \section{\scshape{\textcolor{blue}{TCP/IP Socket Primitives}}} \label{socket_primitives}
 
@@ -185,22 +186,22 @@ As already mentioned above (chapter \ref{introduction_socket}), a socket always 
 \begin{center}
 \begin{tabular}{ | l | l | } 
 \hline
-\textcolor{blue}{Primitive} & \textcolor{blue}{Service description}\\
+\textcolor{blue}{\textbf{Primitive}} & \textcolor{blue}{Service description}\\
 \hline
-Socket & creates a new socket e.g. communication end point\\
-Bind & associates a local address with a socket\\
-Listen & allows to accept new incoming connections to a socket\\
-Accept & blocks until a connection request\\
-Connect & connects to a socket\\
-Send & sends a message to a socket\\
-Receive & reads a message from a socket\\
-Close & aborts a connection\\
+\textbf{Socket} & creates a new socket e.g. communication end point\\
+\textbf{Bind} & associates a local address with a socket\\
+\textbf{Listen} & allows to accept new incoming connections to a socket\\
+\textbf{Accept} & blocks until a connection request\\
+\textbf{Connect} & connects to a socket\\
+\textbf{Send} & sends a message to a socket\\
+\textbf{Receive} & reads a message from a socket\\
+\textbf{Close} & aborts a connection\\
 \hline
 \end{tabular}
 \end{center}
 \label{tab:tcp_primitives}
 
-\noindent The following definition of the function \textit{send()} is the implementation of the \textit{Socket Primitive} 'Send' (DEUTLICHER) by the GNU C Library \cite[p. 457, ch. 16.9.5.1]{GNU_C_library_manual}:
+\noindent The following definition of the function \textit{send()} is the implementation of the \textit{Socket Primitive} \textbf{Send} by the GNU C Library \cite[p. 457, ch. 16.9.5.1]{GNU_C_library_manual}:
 
 \begin{lstlisting}[language=C, numbers=none]
 ssize_t send(  	int socket, 
