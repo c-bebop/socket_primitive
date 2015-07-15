@@ -18,6 +18,9 @@
 *.out
 *.toc
 
+## C++ files
+*.o
+
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
